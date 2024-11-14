@@ -1,7 +1,5 @@
 ### Curso Técnico de Desenvolvimento de Sistemas - Senai Itapeva
 # EmpreGO!
-
-![imagem da capa](assets/IMG/readme/banner.png)
 **Descrição:**
 O projeto se consiste em um site de contratação, onde empresas poderão divulgar vagas e futuros funcionarios poderão se candidatar para essas vagas.
 ## Índice
