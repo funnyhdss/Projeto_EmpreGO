@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}EmpreGO! - {{ vaga.titulo }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ vaga['titulo'] }}</h1>
+<p>{{ vaga['descricao'] }}</p>
+<p>Empresa: {{ vaga['nome_empresa'] }}</p>
+
+{% if msg_erro %}
+    <p style="color: red;">{{ msg_erro }}</p>
+{% endif %}
+
+{% if msg_sucesso %}
+    <p style="color: green;">{{ msg_sucesso }}</p>
+{% endif %}
+
+<h2>Candidatar-se a esta vaga</h2>
+<form method="POST" enctype="multipart/form-data" action="/candidatar/{{ vaga.id_vaga }}">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome" required><br><br>
+
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" id="email" required><br><br>
+
+    <label for="curriculo">Anexar currículo:</label>
+    <input type="file" name="curriculo" id="curriculo" required><br><br>
+
+    <button type="submit">Enviar currículo</button>
+</form>
+
+{% endblock %}

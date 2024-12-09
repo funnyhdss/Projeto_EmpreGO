@@ -2,3 +2,36 @@ body{
     min-height: 100vh;
 }
 
+.titulosobre{
+    text-align: center;
+}
+
+.sobre{
+    text-align: center;
+    margin-left: 25vh;
+    margin-right: 25vh;
+}
+
+.atualizacao{
+    text-align: center;
+    margin-left: 25vh;
+    margin-right: 25vh;
+}
+
+.aviso{
+    text-align: center;
+    margin-left: 25vh;
+    margin-right: 25vh;
+}
+
+.telefone{
+    text-align: center;
+    margin-left: 25vh;
+    margin-right: 25vh;
+}
+
+.email{
+    text-align: center;
+    margin-left: 25vh;
+    margin-right: 25vh;
+}

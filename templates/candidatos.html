@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Currículos Recebidos{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Currículos Recebidos</h1>
+    <hr>
+    {% if curriculos %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome do Candidato</th>
+                    <th>Email</th>
+                    <th>Vaga</th>
+                    <th>Currículo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for curriculo in curriculos %}
+                    <tr>
+                        <td>{{ curriculo.nome_candidato }}</td>
+                        <td>{{ curriculo.email_candidato }}</td>
+                        <td>{{ curriculo.titulo }}</td>
+                        <td>
+                            <a href="/uploads/{{ curriculo.nome_arquivo }}" target="_blank" class="btn btn-primary btn-sm">Baixar</a>
+                        </td>
+                        <td>
+                            <form action="/excluir_curriculo/{{ curriculo.nome_arquivo }}" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-muted">Nenhum currículo foi recebido ainda.</p>
+    {% endif %}
+</div>
+{% endblock %}

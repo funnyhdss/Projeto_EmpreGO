@@ -13,10 +13,10 @@ CREATE TABLE empresa (
 );
 
 CREATE TABLE vaga (
-    idVaga INT PRIMARY KEY AUTO_INCREMENT,  
+    id_vaga INT PRIMARY KEY AUTO_INCREMENT,  
     titulo VARCHAR (100) NOT NULL,
     descricao TEXT NOT NULL,
-    formano ENUM ('Presencial','Híbrido', 'Remoto') NOT NULL,
+    formato ENUM ('Presencial','Híbrido', 'Remoto') NOT NULL,
     tipo ENUM('CLT','PJ') NOT NULL,
     local VARCHAR(100),
     salario VARCHAR(100),
@@ -24,6 +24,17 @@ CREATE TABLE vaga (
     status ENUM('ativa','inativa') DEFAULT 'ativa' NOT NULL,
     FOREIGN KEY (id_empresa) REFERENCES empresa (id_empresa)
 );
+
+CREATE TABLE candidatar (
+    id_candidatar INT AUTO_INCREMENT PRIMARY KEY,
+    id_vaga INT NOT NULL,
+    nome_candidato VARCHAR(255) NOT NULL,
+    email_candidato VARCHAR(255) NOT NULL,
+    arquivo_curriculo VARCHAR(255),
+    data_candidatura TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_vaga) REFERENCES vaga(id_vaga)
+);
+
 
 -- Inserção de 3 empresas
 INSERT INTO empresa (nome_empresa, cnpj, telefone, email, senha, status)
@@ -58,4 +69,3 @@ VALUES
 ('QA Tester', 'Testes automatizados e garantia de qualidade do software.', 'Remoto', 'CLT', 'Remoto', 'R$ 6000', 3, 'ativa'),
 ('Arquiteto de Soluções', 'Definição de arquitetura de sistemas e infraestrutura.', 'Híbrido', 'PJ', 'Belo Horizonte - MG', 'R$ 10000', 3, 'ativa'),
 ('Analista de Suporte', 'Atendimento a clientes e suporte técnico de sistemas.', 'Presencial', 'CLT', 'Belo Horizonte - MG', 'R$ 4000', 3, 'ativa');
-
